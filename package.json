@@ -1,0 +1,12 @@
+{
+  "name": "eloquent-javascript",
+  "version": "0.1.0",
+  "description": "Solutions for exercises found in Eloquent Javascript (Third Edition) by Marijn Harveke",
+  "keywords": [],
+  "author": "Maya Vera <maya@mayavera.me> (https://mayavera.me/)",
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:mayavera/eloquent-javascript.git"
+  }
+}
