@@ -19,3 +19,22 @@ const reverseArrayTestInputs = [
 for (const values of reverseArrayTestInputs) {
   console.log(`reverseArray([${values}]) = [${reverseArray(values)}]`)
 }
+
+function reverseArrayInPlace(values) {
+  const temp = []
+
+  while (values.length > 0) {
+    temp.push(values.pop())
+  }
+
+  while (temp.length > 0) {
+    values.unshift(temp.pop())
+  }
+}
+
+for (const values of reverseArrayTestInputs) {
+  const copy = [...values]
+  reverseArrayInPlace(copy)
+
+  console.log(`reverseArrayInPlace([${values}]) = [${copy}]`)
+}
