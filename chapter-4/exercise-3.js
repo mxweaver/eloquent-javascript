@@ -67,3 +67,22 @@ list = prepend(list, undefined)
 console.log(list)
 list = prepend(list, 3)
 console.log(list)
+
+function nth(list, n) {
+  if (!list || n < 0) {
+    return
+  }
+
+  if (n > 0) {
+    return nth(list.rest, n - 1)
+  } else {
+    return list.value
+  }
+}
+
+list = arrayToList([1, 2, 3])
+console.log(nth(list, 0))
+console.log(nth(list, 1))
+console.log(nth(list, 2))
+console.log(nth(list, 3))
+console.log(nth(list, -1))
