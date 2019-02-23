@@ -54,3 +54,16 @@ for (const values of arrayToListInputs) {
   console.log(listToArray(list))
   console.log()
 }
+
+function prepend(rest, value) {
+  return { value, rest }
+}
+
+let list = prepend(undefined, 1)
+console.log(list)
+list = prepend(list, 2)
+console.log(list)
+list = prepend(list, undefined)
+console.log(list)
+list = prepend(list, 3)
+console.log(list)
