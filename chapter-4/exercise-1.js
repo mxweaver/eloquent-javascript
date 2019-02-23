@@ -21,3 +21,7 @@ const rangeTestInputs = [
 for (const [start, end] of rangeTestInputs) {
   console.log(`range(${start}, ${end}) = ${range(start, end)}`)
 }
+
+const sum = values => values.reduce((sum, value) => sum + value, 0)
+
+console.log(`sum(range(1, 10)) = ${sum(range(1, 10))}`)
