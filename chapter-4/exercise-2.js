@@ -1,40 +1,40 @@
 function reverseArray(values) {
-  const reversedValues = []
+  const reversedValues = [];
 
-  for (let i = values.length - 1; i >= 0; i--) {
-    reversedValues.push(values[i])
+  for (let i = values.length - 1; i >= 0; i -= 1) {
+    reversedValues.push(values[i]);
   }
 
-  return reversedValues
+  return reversedValues;
 }
 
-const reverseArrayTestInputs = [
+const inputs = [
   [1],
   [1, 2],
   [1, 2, 3],
   ['la', 'di', 'da'],
-  ['see', 1, 'you', 55, 'space', undefined, 'cowboy']
-]
+  ['see', 1, 'you', 55, 'space', undefined, 'cowboy'],
+];
 
-for (const values of reverseArrayTestInputs) {
-  console.log(`reverseArray([${values}]) = [${reverseArray(values)}]`)
-}
+inputs.forEach((values) => {
+  console.log(`reverseArray([${values}]) = [${reverseArray(values)}]`);
+});
 
 function reverseArrayInPlace(values) {
-  const temp = []
+  const temp = [];
 
   while (values.length > 0) {
-    temp.push(values.pop())
+    temp.push(values.pop());
   }
 
   while (temp.length > 0) {
-    values.unshift(temp.pop())
+    values.unshift(temp.pop());
   }
 }
 
-for (const values of reverseArrayTestInputs) {
-  const copy = [...values]
-  reverseArrayInPlace(copy)
+inputs.forEach((values) => {
+  const copy = [...values];
+  reverseArrayInPlace(copy);
 
-  console.log(`reverseArrayInPlace([${values}]) = [${copy}]`)
-}
+  console.log(`reverseArrayInPlace([${values}]) = [${copy}]`);
+});

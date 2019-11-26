@@ -1,34 +1,34 @@
 function countBs(s) {
-  let numBs = 0
+  let numBs = 0;
 
-  for (let i = 0; i < s.length; i++) {
+  for (let i = 0; i < s.length; i += 1) {
     if (s[i] === 'B') {
-      numBs++
+      numBs += 1;
     }
   }
 
-  return numBs
+  return numBs;
 }
 
-console.log(`countBs('aaaa') = ${countBs('aaaa')}`)
-console.log(`countBs('aBBa') = ${countBs('aBBa')}`)
+console.log(`countBs('aaaa') = ${countBs('aaaa')}`);
+console.log(`countBs('aBBa') = ${countBs('aBBa')}`);
 
 function countChar(s, target) {
-  let numFound = 0
+  let numFound = 0;
 
-  for (let i = 0; i < s.length; i++) {
+  for (let i = 0; i < s.length; i += 1) {
     if (s[i] === target) {
-      numFound++
+      numFound += 1;
     }
   }
 
-  return numFound
+  return numFound;
 }
 
-console.log(`countChar('foo', 'o') = ${countChar('foo', 'o')}`)
-console.log(`countChar('foo', 'f') = ${countChar('foo', 'f')}`)
+console.log(`countChar('foo', 'o') = ${countChar('foo', 'o')}`);
+console.log(`countChar('foo', 'f') = ${countChar('foo', 'f')}`);
 
-const countBsRedux = s => countChar(s, 'B')
+const countBsRedux = (s) => countChar(s, 'B');
 
-console.log(`countBsRedux('aaaa') = ${countBsRedux('aaaa')}`)
-console.log(`countBsRedux('aBBa') = ${countBsRedux('aBBa')}`)
+console.log(`countBsRedux('aaaa') = ${countBsRedux('aaaa')}`);
+console.log(`countBsRedux('aBBa') = ${countBsRedux('aBBa')}`);

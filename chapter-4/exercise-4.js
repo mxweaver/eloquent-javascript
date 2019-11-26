@@ -1,56 +1,47 @@
 function deepEqual(a, b) {
   if (typeof a !== typeof b) {
-    return false
+    return false;
   }
 
   if (typeof a === 'object') {
-    const aKeys = Object.keys(a)
-    const bKeys = Object.keys(b)
+    const aKeys = Object.keys(a);
+    const bKeys = Object.keys(b);
 
     if (aKeys.length !== bKeys.length) {
-      return false
+      return false;
     }
 
-    for (const key of aKeys) {
-      if (!bKeys.includes(key) || !deepEqual(a[key], b[key])) {
-        return false
-      }
-    }
-
-    return true
-  } else {
-    return a === b
+    return aKeys.find((key) => !bKeys.includes(key) || !deepEqual(a[key], b[key]));
   }
+  return a === b;
 }
 
-const tests = [
+[
   [1, 1, true],
   [1, 0, false],
   [
     [],
     [],
-    true
+    true,
   ], [
     [1],
     [],
-    false
+    false,
   ], [
     {},
     [],
-    true
+    true,
   ], [
     { foo: 'bar' },
     { buzz: 'bang' },
-    false
+    false,
   ], [
     { a: { b: { c: 'd' } } },
     { a: { b: { c: 'd' } } },
-    true
-  ]
-]
-
-for (const [a, b, equal] of tests) {
-  console.log(a)
-  console.log(b)
-  console.log(`Expected ${equal}, got ${deepEqual(a, b)}`)
-}
+    true,
+  ],
+].forEach(([a, b, equal]) => {
+  console.log(a);
+  console.log(b);
+  console.log(`Expected ${equal}, got ${deepEqual(a, b)}`);
+});

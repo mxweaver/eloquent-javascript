@@ -1,33 +1,31 @@
 class Group {
-  constructor () {
-    this.values = []
+  constructor() {
+    this.values = [];
   }
 
-  static from (values) {
-    const group = new Group()
+  static from(values) {
+    const group = new Group();
 
-    for (const value of values) {
-      group.add(value)
-    }
+    values.forEach((value) => group.add(value));
 
-    return group
+    return group;
   }
 
-  add (value) {
+  add(value) {
     if (!this.has(value)) {
-      this.values.push(value)
+      this.values.push(value);
     }
   }
 
-  has (value) {
-    return this.values.indexOf(value) !== -1
+  has(value) {
+    return this.values.indexOf(value) !== -1;
   }
 
-  delete (value) {
+  delete(value) {
     if (this.has(value)) {
-      this.values.splice(this.values.indexOf(value), 1)
+      this.values.splice(this.values.indexOf(value), 1);
     }
   }
 }
 
-module.exports = Group
+module.exports = Group;

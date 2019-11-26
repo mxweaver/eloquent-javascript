@@ -1,6 +1,6 @@
 const o = {
-  hasOwnProperty: 'foobar'
-}
+  hasOwnProperty: 'foobar',
+};
 
-console.log(o)
-console.log(Object.prototype.hasOwnProperty.call(o, 'hasOwnProperty'))
+console.log(o);
+console.log(Object.prototype.hasOwnProperty.call(o, 'hasOwnProperty'));

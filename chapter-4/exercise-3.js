@@ -1,88 +1,92 @@
 function arrayToList(values) {
   if (values.length < 1) {
-    return
+    return undefined;
   }
 
   const list = {
-    value: values[0]
-  }
+    value: values[0],
+  };
 
-  let current = list
+  let current = list;
 
-  for (let i = 1; i < values.length; i++) {
+  for (let i = 1; i < values.length; i += 1) {
     current.rest = {
-      value: values[i]
-    }
+      value: values[i],
+    };
 
-    current = current.rest
+    current = current.rest;
   }
 
-  return list
+  return list;
 }
 
+console.log('arrayToList tests:');
 const arrayToListInputs = [
   [0, 1, 2],
   [],
   [1],
   [1, undefined],
-  [undefined]
-]
+  [undefined],
+];
 
-console.log('arrayToList tests:')
-for (const values of arrayToListInputs) {
-  console.log(values)
-  console.log(arrayToList(values))
-  console.log()
-}
+arrayToListInputs.forEach((values) => {
+  console.log(values);
+  console.log(arrayToList(values));
+  console.log();
+});
 
 function listToArray(list) {
-  const values = []
+  const values = [];
+  let workingList = list;
 
   while (list) {
-    values.push(list.value)
-    list = list.rest
+    values.push(list.value);
+    workingList = workingList.rest;
   }
 
-  return values
+  return values;
 }
 
-console.log('listToArray tests:')
-for (const values of arrayToListInputs) {
-  const list = arrayToList(values)
-  console.log(values)
-  console.log(list)
-  console.log(listToArray(list))
-  console.log()
-}
+console.log('listToArray tests:');
+arrayToListInputs.forEach((values) => {
+  const list = arrayToList(values);
+  console.log(values);
+  console.log(list);
+  console.log(listToArray(list));
+  console.log();
+});
 
 function prepend(rest, value) {
-  return { value, rest }
+  return { value, rest };
 }
 
-let list = prepend(undefined, 1)
-console.log(list)
-list = prepend(list, 2)
-console.log(list)
-list = prepend(list, undefined)
-console.log(list)
-list = prepend(list, 3)
-console.log(list)
+(function testPrepend() {
+  let list = prepend(undefined, 1);
+  console.log(list);
+  list = prepend(list, 2);
+  console.log(list);
+  list = prepend(list, undefined);
+  console.log(list);
+  list = prepend(list, 3);
+  console.log(list);
+}());
 
 function nth(list, n) {
   if (!list || n < 0) {
-    return
+    return undefined;
   }
 
   if (n > 0) {
-    return nth(list.rest, n - 1)
-  } else {
-    return list.value
+    return nth(list.rest, n - 1);
   }
+  return list.value;
 }
 
-list = arrayToList([1, 2, 3])
-console.log(nth(list, 0))
-console.log(nth(list, 1))
-console.log(nth(list, 2))
-console.log(nth(list, 3))
-console.log(nth(list, -1))
+(function testNth() {
+  const list = arrayToList([1, 2, 3]);
+  console.log(nth(list, 0));
+  console.log(nth(list, 1));
+  console.log(nth(list, 2));
+  console.log(nth(list, 3));
+  console.log(nth(list, -1));
+}());
