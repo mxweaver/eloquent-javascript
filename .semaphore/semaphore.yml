@@ -12,6 +12,7 @@ blocks:
           commands:
             - checkout
             - sem-version node 12.13.1
+            - sem-version npm 6.13.1
             - cache restore
             - npm install
             - cache store
