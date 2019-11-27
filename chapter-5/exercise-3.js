@@ -1,7 +1,7 @@
-function everyLoop(values, test) {
+function everyLoop(values, f) {
   /* eslint-disable no-restricted-syntax */
   for (const value of values) {
-    if (!test(value)) {
+    if (!f(value)) {
       return false;
     }
   }
@@ -10,12 +10,12 @@ function everyLoop(values, test) {
   return true;
 }
 
-function everySome(values, test) {
+function everySome(values, f) {
   if (values.length === 0) {
     return true;
   }
 
-  return values.some(test) && !values.some((v) => !test(v));
+  return values.some(test) && !values.some((v) => !f(v));
 }
 
 [

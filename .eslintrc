@@ -1,5 +1,9 @@
 {
-  "extends": "airbnb",
+  "plugins": ["jest"],
+  "extends": [
+    "airbnb",
+    "plugin:jest/all"
+  ],
   "env": {
     "browser": true
   },

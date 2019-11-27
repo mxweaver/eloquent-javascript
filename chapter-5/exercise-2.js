@@ -1,7 +1,7 @@
-function loop(initial, test, update, body) {
+function loop(initial, f, update, body) {
   let value = initial;
 
-  while (test(value)) {
+  while (f(value)) {
     body(value);
     value = update(value);
   }
