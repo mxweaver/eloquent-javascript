@@ -10,9 +10,6 @@ function countBs(s) {
   return numBs;
 }
 
-console.log(`countBs('aaaa') = ${countBs('aaaa')}`);
-console.log(`countBs('aBBa') = ${countBs('aBBa')}`);
-
 function countChar(s, target) {
   let numFound = 0;
 
@@ -25,10 +22,10 @@ function countChar(s, target) {
   return numFound;
 }
 
-console.log(`countChar('foo', 'o') = ${countChar('foo', 'o')}`);
-console.log(`countChar('foo', 'f') = ${countChar('foo', 'f')}`);
-
 const countBsRedux = (s) => countChar(s, 'B');
 
-console.log(`countBsRedux('aaaa') = ${countBsRedux('aaaa')}`);
-console.log(`countBsRedux('aBBa') = ${countBsRedux('aBBa')}`);
+module.exports = {
+  countBs,
+  countChar,
+  countBsRedux,
+};
