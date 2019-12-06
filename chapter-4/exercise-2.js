@@ -8,18 +8,6 @@ function reverseArray(values) {
   return reversedValues;
 }
 
-const inputs = [
-  [1],
-  [1, 2],
-  [1, 2, 3],
-  ['la', 'di', 'da'],
-  ['see', 1, 'you', 55, 'space', undefined, 'cowboy'],
-];
-
-inputs.forEach((values) => {
-  console.log(`reverseArray([${values}]) = [${reverseArray(values)}]`);
-});
-
 function reverseArrayInPlace(values) {
   const temp = [];
 
@@ -32,9 +20,7 @@ function reverseArrayInPlace(values) {
   }
 }
 
-inputs.forEach((values) => {
-  const copy = [...values];
-  reverseArrayInPlace(copy);
-
-  console.log(`reverseArrayInPlace([${values}]) = [${copy}]`);
-});
+module.exports = {
+  reverseArray,
+  reverseArrayInPlace,
+};
